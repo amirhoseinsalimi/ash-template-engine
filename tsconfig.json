@@ -1,0 +1,27 @@
+{
+  "include": [
+    "./**/*.ts"
+  ],
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "target": "es5",
+    "incremental": true,
+    "outDir": "dist/",
+    "alwaysStrict": true,
+    "checkJs": true,
+    "allowJs": true,
+    "noEmit": false,
+    "downlevelIteration": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "Node",
+    "sourceMap": false,
+    "typeRoots": ["./src/types/**/*.d.ts"],
+    "declaration": true
+  },
+  "exclude": [
+    "./test/",
+    "./node_modules/",
+    "./dist/"
+  ]
+}

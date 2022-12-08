@@ -1,14 +1,14 @@
 {
-  "name": "my-own-template-engine-in",
+  "name": "my-own-template-engine-in-ts",
   "version": "0.0.1",
-  "description": "I built my own template engine for learning purposes with zero dependencies - It's called Ash",
+  "description": "I built my own template engine for learning purposes with zero dependencies in TypeScript - It's called Ash",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/amirhoseinsalimi/my-own-template-engine-in-js.git"
+    "url": "git+https://github.com/amirhoseinsalimi/my-own-template-engine-in-ts.git"
   },
   "keywords": [
     "template-engine",
@@ -20,13 +20,16 @@
   "author": "Amir Hosein Salimi",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/amirhoseinsalimi/my-own-template-engine-in-js/issues"
+    "url": "https://github.com/amirhoseinsalimi/my-own-template-engine-in-ts/issues"
   },
-  "homepage": "https://github.com/amirhoseinsalimi/my-own-template-engine-in-js#readme",
+  "homepage": "https://github.com/amirhoseinsalimi/my-own-template-engine-in-ts#readme",
   "devDependencies": {
+    "@types/node": "^18.11.11",
     "eslint": "^8.29.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.26.0",
-    "prettier": "2.8.1"
+    "prettier": "2.8.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.4"
   }
 }
