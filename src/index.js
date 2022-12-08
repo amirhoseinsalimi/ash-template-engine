@@ -1,5 +1,5 @@
 class TemplateEngine {
-  static regexpForVariablePlaceholders = /<%([^%>]+)?%>/g
+  static regexpForVariablePlaceholders = /\{\{([^}}]+)?}}/g
   static unknownRegexp = /(^( )?(var|if|for|else|switch|case|break|{|}|;))(.*)?/g
 
   foundVariables = []
@@ -55,7 +55,7 @@ class TemplateEngine {
   }
 }
 
-const template = 'Hello my name is <% name %> and I\'m <% age %> years old. Yes! I\'m <% age %>!'
+const template = 'Hello my name is {{ name }} and I\'m {{ age }} years old. Yes! I\'m {{ age }}!'
 const data = {
   name: 'Amir Hosein',
   age: 26
