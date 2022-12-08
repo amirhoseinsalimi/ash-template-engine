@@ -1,7 +1,7 @@
 {
   "name": "my-own-template-engine-in",
   "version": "0.0.1",
-  "description": "I wrote my own template engine for learning purposes with zero dependency - It's called Ash",
+  "description": "I built my own template engine for learning purposes with zero dependencies - It's called Ash",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
