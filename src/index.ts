@@ -3,22 +3,22 @@ class TemplateEngine {
   static unknownRegexp =
     /(^( )?(var|if|for|else|switch|case|break|{|}|;))(.*)?/g;
 
-  foundVariables = [];
-  currentMatch = undefined;
+  currentMatch: RegExpExecArray = undefined;
   cursor = 0;
   generatedTemplate = '';
-  result = undefined;
+  result = '';
   code = 'with(obj) { var r=[];\n'; // FIXME: Use better names
 
   constructor() {
-    Object.getOwnPropertyNames(TemplateEngine.prototype).forEach((key) => {
-      if (key !== 'constructor') {
+    Object.getOwnPropertyNames(TemplateEngine.prototype).forEach(
+      (key: keyof TemplateEngine) => {
+        // @ts-ignore
         this[key] = this[key].bind(this);
-      }
-    });
+      },
+    );
   }
 
-  compile(template, data) {
+  compile(template: string, data: Record<string, unknown>) {
     this.generatedTemplate = template;
 
     while (
@@ -30,7 +30,7 @@ class TemplateEngine {
         true,
       );
 
-      this.cursor = this.currentMatch.index + this.currentMatch[0].length;
+      this.moveCursor(this.currentMatch.index + this.currentMatch[0].length);
     }
 
     this.add(template.substr(this.cursor, template.length - this.cursor));
@@ -46,7 +46,7 @@ class TemplateEngine {
     return this.result;
   }
 
-  add(line, js) {
+  add(line: string, js = false) {
     js
       ? (this.code += line.match(TemplateEngine.unknownRegexp)
           ? `${line}`
@@ -57,7 +57,7 @@ class TemplateEngine {
     return this.add;
   }
 
-  moveCursor(to) {
+  moveCursor(to: number) {
     this.cursor = to;
   }
 }
