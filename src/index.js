@@ -40,7 +40,6 @@ class TemplateEngine {
   }
 
   add(line, js) {
-    console.log(111, this)
     js ? (this.code += line.match(TemplateEngine.unknownRegexp) ? `${line}`
             : 'r.push(' + line + ');\n') :
         (this.code += line !== '' ? `r.push("${line.replace(/"/g, '\\"')}");`
