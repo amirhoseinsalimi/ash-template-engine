@@ -1,0 +1,26 @@
+{
+  "name": "my-own-template-engine-in",
+  "version": "0.0.1",
+  "description": "I wrote my own template engine for learning purposes with zero dependency - It's called Ash",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amirhoseinsalimi/my-own-template-engine-in-js.git"
+  },
+  "keywords": [
+    "template-engine",
+    "js",
+    "javascript",
+    "template",
+    "build-your-own"
+  ],
+  "author": "Amir Hosein Salimi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/amirhoseinsalimi/my-own-template-engine-in-js/issues"
+  },
+  "homepage": "https://github.com/amirhoseinsalimi/my-own-template-engine-in-js#readme"
+}
