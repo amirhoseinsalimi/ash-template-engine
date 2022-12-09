@@ -2,7 +2,7 @@ import { Syntax } from './types/general';
 
 export class TemplateEngine {
   static regexpForVariablePlaceholders = /\{\{([^}}]+)?}}/g;
-  static unknownRegexp =
+  static keywordsRegexp =
     /(^( )?(var|if|for|else|switch|case|break|{|}|;))(.*)?/g;
 
   currentMatch: RegExpExecArray = undefined;
@@ -60,7 +60,7 @@ export class TemplateEngine {
 
   add(line: string, js = false) {
     js
-      ? (this.code += line.match(TemplateEngine.unknownRegexp)
+      ? (this.code += line.match(TemplateEngine.keywordsRegexp)
           ? `${line}`
           : 'r.push(' + line + ');\n')
       : (this.code +=
