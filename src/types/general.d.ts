@@ -1,0 +1,1 @@
+type Syntax = 'mustache' | 'asp';

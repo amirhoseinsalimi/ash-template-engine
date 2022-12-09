@@ -9,7 +9,17 @@ class TemplateEngine {
   result = '';
   code = 'with(obj) { var r=[];\n'; // FIXME: Use better names
 
-  constructor() {
+  constructor(syntax: Syntax) {
+    if (syntax === 'mustache') {
+      TemplateEngine.regexpForVariablePlaceholders = /\{\{([^}}]+)?}}/g;
+    } else if (syntax === 'asp') {
+      TemplateEngine.regexpForVariablePlaceholders = /<%([^%>]+)?%>/g;
+    } else {
+      throw TypeError(
+        `'${syntax}' is of type '${typeof syntax}' and is not assinable to type 'Syntax'`,
+      );
+    }
+
     Object.getOwnPropertyNames(TemplateEngine.prototype).forEach(
       (key: keyof TemplateEngine) => {
         // @ts-ignore
@@ -62,14 +72,21 @@ class TemplateEngine {
   }
 }
 
-const template =
+const template1 =
   "Hello my name is {{ name }} and I'm {{ age }} years old. Yes! I'm {{ age }}!";
+const template2 =
+  "Hello my name is <% name %> and I'm <% age %> years old. Yes! I'm <% age %>!";
+
 const data = {
   name: 'Amir Hosein',
   age: 26,
 };
 
-const templateEngine = new TemplateEngine();
-const res = templateEngine.compile(template, data);
+const templateEngine1 = new TemplateEngine('mustache');
+const templateEngine2 = new TemplateEngine('asp');
 
-console.log(res);
+const res1 = templateEngine1.compile(template1, data);
+const res2 = templateEngine2.compile(template2, data);
+
+console.log(res1);
+console.log(res2);
