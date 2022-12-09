@@ -1,1 +1,1 @@
-type Syntax = 'mustache' | 'asp';
+export type Syntax = 'mustache' | 'asp';

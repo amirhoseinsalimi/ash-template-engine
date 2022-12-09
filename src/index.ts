@@ -1,4 +1,6 @@
-class TemplateEngine {
+import { Syntax } from './types/general';
+
+export class TemplateEngine {
   static regexpForVariablePlaceholders = /\{\{([^}}]+)?}}/g;
   static unknownRegexp =
     /(^( )?(var|if|for|else|switch|case|break|{|}|;))(.*)?/g;
@@ -71,22 +73,3 @@ class TemplateEngine {
     this.cursor = to;
   }
 }
-
-const template1 =
-  "Hello my name is {{ name }} and I'm {{ age }} years old. Yes! I'm {{ age }}!";
-const template2 =
-  "Hello my name is <% name %> and I'm <% age %> years old. Yes! I'm <% age %>!";
-
-const data = {
-  name: 'Amir Hosein',
-  age: 26,
-};
-
-const templateEngine1 = new TemplateEngine('mustache');
-const templateEngine2 = new TemplateEngine('asp');
-
-const res1 = templateEngine1.compile(template1, data);
-const res2 = templateEngine2.compile(template2, data);
-
-console.log(res1);
-console.log(res2);
