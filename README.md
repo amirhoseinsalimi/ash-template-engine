@@ -12,7 +12,7 @@
 
 > _What I cannot create, I do not understand — Richard Feynman._
 
-It sure is. The above quote is my favorite. It's through building that we learn how things work or should work. Using the code that others have written is convenient, but if we want to be the person that writes code that other programmers use, we should start building. Visit the golden GitHub repository [Build Your Own X](https://github.com/codecrafters-io/build-your-own-x)
+It sure is. The above quote is my favorite. It's through building that we learn how things work or should work. Using the code that others have written is convenient, but if we want to be the person who writes code that other programmers use, we should start building. Visit the golden GitHub repository [Build Your Own X](https://github.com/codecrafters-io/build-your-own-x) to find some notions.
 
 ---
 
