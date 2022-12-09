@@ -17,7 +17,7 @@ export class TemplateEngine {
       TemplateEngine.regexpForVariablePlaceholders = /<%([^%>]+)?%>/g;
     } else {
       throw TypeError(
-        `'${syntax}' is of type '${typeof syntax}' and is not assinable to type 'Syntax'`,
+        `'${syntax}' is of type '${typeof syntax}' and is not assignable to type 'Syntax'`,
       );
     }
 
