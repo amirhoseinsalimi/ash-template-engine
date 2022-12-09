@@ -1,8 +1,10 @@
 {
-  "name": "my-own-template-engine-in-ts",
+  "name": "@amirhoseinsalimi/ash-template-engine",
   "version": "0.0.1",
   "description": "I built my own template engine for learning purposes with zero dependencies in TypeScript - It's called Ash",
   "main": "index.js",
+  "author": "Amir Hosein Salimi <ahosein.salimi@gmail.com> (https://github.com/amirhoseinsalimi/)",
+  "private": true,
   "scripts": {
     "test": "mocha -r ts-node/register 'test/**/*.ts'"
   },
@@ -17,7 +19,6 @@
     "template",
     "build-your-own"
   ],
-  "author": "Amir Hosein Salimi",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/amirhoseinsalimi/my-own-template-engine-in-ts/issues"
@@ -37,5 +38,9 @@
     "ts-mocha": "^10.0.0",
     "ts-node": "^10.9.1",
     "typescript": "^4.9.4"
+  },
+  "directories": {
+    "example": "examples",
+    "test": "test"
   }
 }
