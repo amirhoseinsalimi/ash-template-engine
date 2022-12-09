@@ -1,15 +1,11 @@
 import { TemplateEngine } from '../../src';
+import { dataSimple } from '../shared';
 
 const template =
   "Hello my name is <% name %> and I'm <% age %> years old. Yes! I'm <% age %>!";
 
-const data = {
-  name: 'Amir Hosein',
-  age: 26,
-};
-
 const templateEngine = new TemplateEngine('asp');
 
-const res1 = templateEngine.compile(template, data);
+const result = templateEngine.compile(template, dataSimple);
 
-console.log(res1);
+console.log(result);
