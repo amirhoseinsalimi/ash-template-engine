@@ -30,7 +30,7 @@ export class TemplateEngine {
     );
   }
 
-  compile(template: string, data: Record<string, unknown>) {
+  compile(template: string, data: Record<string, unknown> | Array<unknown>) {
     this.generatedTemplate = template;
 
     while (
