@@ -8,8 +8,7 @@ export class TemplateEngine {
   currentMatch: RegExpExecArray = undefined;
   cursor = 0;
   generatedTemplate = '';
-  result = '';
-  code = 'with(obj) { var r=[];\n'; // FIXME: Use better names
+  code = 'with(obj) { var r=[];\n';
 
   constructor(syntax: Syntax) {
     if (syntax === 'mustache') {
@@ -35,27 +34,28 @@ export class TemplateEngine {
 
     while (
       (this.currentMatch =
-        TemplateEngine.regexpForVariablePlaceholders.exec(template))
+        TemplateEngine.regexpForVariablePlaceholders.exec(this.generatedTemplate))
     ) {
-      this.add(template.slice(this.cursor, this.currentMatch.index))(
-        this.currentMatch[1],
-        true,
-      );
+      this.add(
+        this.generatedTemplate.slice(this.cursor, this.currentMatch.index),
+      )(this.currentMatch[1], true);
 
       this.moveCursor(this.currentMatch.index + this.currentMatch[0].length);
     }
 
-    this.add(template.substr(this.cursor, template.length - this.cursor));
+    this.add(
+      this.generatedTemplate.substr(this.cursor, this.generatedTemplate.length - this.cursor),
+    );
 
     this.code = `${this.code}return r.join(""); }`.replace(/[\r\t\n]/g, ' ');
 
     try {
-      this.result = new Function('obj', this.code).apply(data, [data]);
+      this.generatedTemplate = new Function('obj', this.code).apply(data, [data]);
     } catch (err) {
       console.error(`'${err.message}'`, ' in \n\nCode:\n', this.code, '\n');
     }
 
-    return this.result;
+    return this.generatedTemplate;
   }
 
   add(line: string, js = false) {
