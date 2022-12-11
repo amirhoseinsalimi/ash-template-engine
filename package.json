@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/amirhoseinsalimi/my-own-template-engine-in-ts.git"
+    "url": "git+https://github.com/amirhoseinsalimi/ash-template-engine.git"
   },
   "keywords": [
     "template-engine",
@@ -21,9 +21,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/amirhoseinsalimi/my-own-template-engine-in-ts/issues"
+    "url": "https://github.com/amirhoseinsalimi/ash-template-engine/issues"
   },
-  "homepage": "https://github.com/amirhoseinsalimi/my-own-template-engine-in-ts#readme",
+  "homepage": "https://github.com/amirhoseinsalimi/ash-template-engine#readme",
   "devDependencies": {
     "@types/chai": "^4.3.4",
     "@types/expect": "^24.3.0",

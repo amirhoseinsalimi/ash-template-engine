@@ -12,7 +12,7 @@
 
 ---
 
-[![Banner](https://github.com/amirhoseinsalimi/my-own-template-engine-in-ts/blob/master/feynman.png)](https://github.com/amirhoseinsalimi/my-own-template-engine-in-ts)
+[![Banner](https://github.com/amirhoseinsalimi/ash-template-engine/blob/master/feynman.png)](https://github.com/amirhoseinsalimi/ash-template-engine)
 
 > _What I cannot create, I do not understand — Richard Feynman._
 
@@ -30,5 +30,5 @@ This project is my attempt to learn how template engines work. I called it Ash
 the code and pick some ideas to build your own template engine. I also went
 further and implemented tests and added TypeScript so everyone — including
 future myself — can understand the code better. I provided some examples in 
-[examples folder](https://github.com/amirhoseinsalimi/my-own-template-engine-in-ts/tree/master/examples)
+[examples folder](https://github.com/amirhoseinsalimi/ash-template-engine/tree/master/examples)
 as well. 
