@@ -1,5 +1,4 @@
 import { TemplateEngine } from '../../src';
-import type { Syntax } from '../../src/types/general';
 import { dataSimple } from '../shared';
 
 const template =
