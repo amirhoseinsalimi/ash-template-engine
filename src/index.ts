@@ -7,7 +7,7 @@ export class TemplateEngine {
 
   currentMatch: RegExpExecArray = undefined;
   cursor = 0;
-  generatedTemplate = '';
+  result = '';
   code = 'with(obj) { var r=[];\n';
 
   constructor(syntax: Syntax) {
@@ -30,32 +30,30 @@ export class TemplateEngine {
   }
 
   compile(template: string, data: Record<string, unknown> | Array<unknown>) {
-    this.generatedTemplate = template;
-
     while (
       (this.currentMatch =
-        TemplateEngine.regexpForVariablePlaceholders.exec(this.generatedTemplate))
+        TemplateEngine.regexpForVariablePlaceholders.exec(template))
     ) {
       this.add(
-        this.generatedTemplate.slice(this.cursor, this.currentMatch.index),
+        template.slice(this.cursor, this.currentMatch.index),
       )(this.currentMatch[1], true);
 
       this.moveCursor(this.currentMatch.index + this.currentMatch[0].length);
     }
 
     this.add(
-      this.generatedTemplate.substr(this.cursor, this.generatedTemplate.length - this.cursor),
+      template.substr(this.cursor, template.length - this.cursor),
     );
 
     this.code = `${this.code}return r.join(""); }`.replace(/[\r\t\n]/g, ' ');
 
     try {
-      this.generatedTemplate = new Function('obj', this.code).apply(data, [data]);
+      this.result = new Function('obj', this.code).apply(data, [data]);
     } catch (err) {
       console.error(`'${err.message}'`, ' in \n\nCode:\n', this.code, '\n');
     }
 
-    return this.generatedTemplate;
+    return this.result;
   }
 
   add(line: string, js = false) {
