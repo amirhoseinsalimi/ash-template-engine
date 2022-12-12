@@ -9,6 +9,7 @@
     "outDir": "dist/",
     "alwaysStrict": true,
     "checkJs": true,
+    "lib": ["DOM", "ES2016"],
     "allowJs": true,
     "noEmit": false,
     "downlevelIteration": true,
