@@ -42,7 +42,7 @@ export class TemplateEngine {
     }
 
     this.add(
-      template.substr(this.cursor, template.length - this.cursor),
+      template.substring(this.cursor, template.length),
     );
 
     this.code = `${this.code}return r.join(""); }`.replace(/[\r\t\n]/g, ' ');
