@@ -40,7 +40,9 @@ export class TemplateEngine {
     ) {
       this.add(
         template.slice(this.cursor, this.currentMatch.index),
-      )(this.currentMatch[1], true);
+      )
+
+      this.add(this.currentMatch[1], true);
 
       this.moveCursor(this.currentMatch.index + this.currentMatch[0].length);
     }
@@ -67,8 +69,6 @@ export class TemplateEngine {
           : `r.push(${line});`)
       : (this.code +=
           line !== '' ? `r.push("${line.replace(/"/g, '\\"')}");` : '');
-
-    return this.add;
   }
 
   moveCursor(to: number) {
