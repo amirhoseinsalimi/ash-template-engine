@@ -4,7 +4,7 @@ import { dataSimple } from '../shared';
 const template =
   'This car is a {{ manufacturer }} {{ model }}.';
 
-const templateEngine = new TemplateEngine('mustache');
+const templateEngine = TemplateEngine.createWithMustacheSyntax();
 
 const res = templateEngine.compile(template, dataSimple);
 

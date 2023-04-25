@@ -5,7 +5,7 @@ const template = `<% for (let i = 0; i < dataArray.length; i += 1) {%>
     <% dataArray[i].name %> is <% dataArray[i].age %> years old.
     <% } %>`;
 
-const templateEngine = new TemplateEngine('asp');
+const templateEngine = TemplateEngine.createWithAspSyntax();
 
 const result = templateEngine.compile(template, { dataArray });
 

@@ -10,15 +10,11 @@ export class TemplateEngine {
   result = '';
   code = 'with(obj) { var r=[];\n';
 
-  constructor(syntax: Syntax) {
+  private constructor(syntax: Syntax) {
     if (syntax === 'mustache') {
       TemplateEngine.regexpForVariablePlaceholders = /\{\{([^}}]+)?}}/g;
     } else if (syntax === 'asp') {
       TemplateEngine.regexpForVariablePlaceholders = /<%([^%>]+)?%>/g;
-    } else {
-      throw TypeError(
-        `'${syntax}' is of type '${typeof syntax}' and is not assignable to type 'Syntax'`,
-      );
     }
 
     Object.getOwnPropertyNames(TemplateEngine.prototype).forEach(
@@ -27,6 +23,14 @@ export class TemplateEngine {
         this[key] = this[key].bind(this);
       },
     );
+  }
+
+  static createWithMustacheSyntax() {
+    return new this('mustache');
+  }
+
+  static createWithAspSyntax() {
+    return new this('asp');
   }
 
   compile(template: string, data: Record<string, unknown> | Array<unknown>) {

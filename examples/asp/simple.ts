@@ -3,7 +3,7 @@ import { dataSimple } from '../shared';
 
 const template = 'This car is a <% manufacturer %> <% model %>.';
 
-const templateEngine = new TemplateEngine('asp');
+const templateEngine = TemplateEngine.createWithAspSyntax();
 
 const result = templateEngine.compile(template, dataSimple);
 

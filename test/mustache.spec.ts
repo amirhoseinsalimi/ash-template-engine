@@ -5,7 +5,7 @@ import { dataNested, dataSimple } from '../examples/shared';
 
 describe('Mustache Syntax', () => {
   it('should compile simple objects', () => {
-    const compiler = new TemplateEngine('mustache').compile;
+    const compiler = TemplateEngine.createWithMustacheSyntax().compile;
 
     expect(
       compiler('This car is a {{ manufacturer }} {{ model }}.', dataSimple),
@@ -13,7 +13,7 @@ describe('Mustache Syntax', () => {
   });
 
   it('should compile nested objects', () => {
-    const compiler = new TemplateEngine('mustache').compile;
+    const compiler = TemplateEngine.createWithMustacheSyntax().compile;
 
     expect(
       compiler(

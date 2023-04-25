@@ -5,7 +5,7 @@ import { dataNested, dataSimple, dataArray } from '../examples/shared';
 
 describe('ASP Syntax', () => {
   it('should compile simple objects', () => {
-    const compiler = new TemplateEngine('asp').compile;
+    const compiler = TemplateEngine.createWithAspSyntax().compile;
 
     expect(
       compiler('This car is a <% manufacturer %> <% model %>.', dataSimple),
@@ -13,7 +13,7 @@ describe('ASP Syntax', () => {
   });
 
   it('should compile nested objects', () => {
-    const compiler = new TemplateEngine('asp').compile;
+    const compiler = TemplateEngine.createWithAspSyntax().compile;
 
     expect(
       compiler(
@@ -24,7 +24,7 @@ describe('ASP Syntax', () => {
   });
 
   it('should compile `if` statements when `true`', () => {
-    const compiler = new TemplateEngine('asp').compile;
+    const compiler = TemplateEngine.createWithAspSyntax().compile;
 
     expect(
       compiler(
@@ -39,7 +39,7 @@ describe('ASP Syntax', () => {
   });
 
   it('should not compile `if` statements when `false`', () => {
-    const compiler = new TemplateEngine('asp').compile;
+    const compiler = TemplateEngine.createWithAspSyntax().compile;
 
     expect(
       compiler(
@@ -54,13 +54,13 @@ describe('ASP Syntax', () => {
   });
 
   it('should compile `for` loops', () => {
-    const compiler = new TemplateEngine('asp').compile;
+    const compiler = TemplateEngine.createWithAspSyntax().compile;
 
     expect(
       compiler(
         `<% for (let i = 0; i < dataArray.length; i += 1) {%>
           <% dataArray[i].name %> is <% dataArray[i].age %> years old.
-          <% } %>`,
+        <% } %>`,
         { dataArray },
       ).trim().split('.').map((text) => text.trim()).filter((text) => text),
     ).to.include.members(dataArray.map((person) => `${person.name} is ${person.age} years old`));

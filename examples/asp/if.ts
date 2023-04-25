@@ -6,7 +6,7 @@ const template = `<% if (true) {%>
     <% "This should not be displayed" %>
     <% } %>`;
 
-const templateEngine = new TemplateEngine('asp');
+const templateEngine = TemplateEngine.createWithAspSyntax();
 
 const result = templateEngine.compile(template, {});
 
