@@ -1,6 +1,6 @@
 {
   "name": "@amirhoseinsalimi/ash-template-engine",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "I built my own template engine for learning purposes with zero dependencies in TypeScript - It's called Ash",
   "main": "index.js",
   "author": "Amir Hosein Salimi <ahosein.salimi@gmail.com> (https://github.com/amirhoseinsalimi/)",
