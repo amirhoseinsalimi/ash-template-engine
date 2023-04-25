@@ -64,7 +64,7 @@ export class TemplateEngine {
     js
       ? (this.code += line.match(TemplateEngine.keywordsRegexp)
           ? `${line}`
-          : 'r.push(' + line + ');\n')
+          : `r.push(${line});`)
       : (this.code +=
           line !== '' ? `r.push("${line.replace(/"/g, '\\"')}");` : '');
 
